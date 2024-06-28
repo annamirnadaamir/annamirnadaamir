@@ -7,6 +7,6 @@ $password = '';
 
 $koneksi = new mysqli($server, $username, $password, $database);
 
-if ($koneksi->connect_errno) {
+if ($koneksi->connect_error) {
     echo 'Gagal terkoneksi ke database ' . $database;
 }
