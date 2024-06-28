@@ -5,10 +5,8 @@ $database = 'db_sct';
 $username = 'root';
 $password = '';
 
-$conn = mysqli_connect($server, $username, $password, $database);
+$koneksi = new mysqli($server, $username, $password, $database);
 
-if (!$conn) {
-    die("koneksi gagal:" .mysqli_connect_error());
-} else {
-    echo "koneksi berhasil";
+if ($koneksi->connect_errno) {
+    echo 'Gagal terkoneksi ke database ' . $database;
 }
