@@ -1,15 +1,33 @@
-<?php
-require 'koneksi.php';
-$email = $_POST["email"];
-$password = $_POST["password"];
+<!DOCTYPE html>
+<html lang="en">
 
-$query_sql = "SELECT * FROM tbl_user WHERE email = '$email' AND password = '$password'";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
 
-$result = mysqli_query($conn, $query_sql);
+<body>
+    <div id="form">
+        <form action="login.php" method="post">
+            <h4>Selamat Datang</h4>
+            <p>Silahkan masukkan email dan password</p>
+            <div class="form-login">
+                <label for="">Email</label>
+                <input type="text" name="username" placeholder="masukkan email">
+            </div>
+            <div class="form-login">
+                <label for="">Password</label>
+                <input type="password" name="password" placeholder="masukkan password">
+            </div>
+            <a href="forgot.php">Lupa password?</a>
+            <div class="form-login">
+                <button>Login Sekarang</button>
+            </div>
+            <center><a href="register.php">Belum punya akun? Daftar Sekarang</a></center>
+        </form>
+    </div>
+</body>
 
-if (mysqli_num_rows($result) > 0) {
-    header("Location: koneksi.php");
-} else {
-    echo "<center><h1>Email atau Password Anda Salah. Silahkan Coba Login Kembali.</h1>
-            <button><strong><a href='index.html'>Login</a></strong></button></center>";
-}
+</html>
